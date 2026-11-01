@@ -1,0 +1,334 @@
+# BudgetWise AI
+
+> Full-stack personal finance dashboard with transaction tracking, budgets, savings goals, AI-assisted insights, rewards, and simulated bank synchronization.
+
+> University portfolio project with a companion Freedom Bank simulator for safe demo banking data.
+
+![Node.js](https://img.shields.io/badge/Backend-Node.js-green)
+![Express](https://img.shields.io/badge/API-Express.js-black)
+![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
+![JavaScript](https://img.shields.io/badge/Frontend-JavaScript-yellow)
+![OpenAI](https://img.shields.io/badge/AI-OpenAI_API-purple)
+![Chart.js](https://img.shields.io/badge/Charts-Chart.js-red)
+
+![BudgetWise AI Dashboard](screenshots/dashboard-activity-panel.png)
+
+---
+
+## About
+
+**BudgetWise AI** is a full-stack personal finance web application designed to help users track transactions, manage category-based budgets, create savings goals, view financial dashboards, and receive AI-assisted financial insights.
+
+The project connects with a companion simulated banking system called **Freedom Bank**, which generates realistic checking and credit card activity for safe demo usage. BudgetWise AI can link simulated accounts, import transactions, prevent duplicates, and use the imported data for dashboards, budgets, goals, and analytics.
+
+> This is an educational/demo personal finance project. It is not a real banking platform, payment processor, financial advisor, or production financial system.
+
+---
+
+## Screenshots
+
+### Login
+
+![Login](screenshots/login.png)
+
+### Dashboard Overview
+
+![Dashboard Overview](screenshots/dashboard-activity-panel.png)
+
+### AI Assistant
+
+![AI Assistant](screenshots/assistant-panel.png)
+
+### Activity and Transactions
+
+![Activity and Transactions](screenshots/activity-transactions.png)
+
+### Budget Management
+
+![Budget Management](screenshots/budgets-page.png)
+
+### Spending Outlook
+
+![Spending Outlook](screenshots/spending-outlook.png)
+
+### Goals Overview
+
+![Goals Overview](screenshots/goals-overview.png)
+
+### Goal Progress Details
+
+![Goal Progress Details](screenshots/goal-details.png)
+
+### Rewards System
+
+![Rewards System](screenshots/rewards-page.png)
+
+### Settings and Bank Connection
+
+![Settings and Bank Connection](screenshots/settings-page.png)
+
+---
+
+## Why BudgetWise AI?
+
+- **Transaction Tracking:** Track income, expenses, categories, dates, merchants, and account sources.
+- **Budget Management:** Set category limits, monitor spending progress, and review category-level transaction history.
+- **Goal Planning:** Create savings goals, schedule deposits, track progress, and review completed goals.
+- **Simulated Bank Sync:** Import realistic checking and credit card transactions from Freedom Bank.
+- **AI-Assisted Insights:** Generate financial summaries, spending outlooks, goal analysis, and what-if recommendations.
+- **Gamification:** Encourage financial habits with XP, daily tasks, streaks, levels, and a mastery path.
+- **Modern Dashboard:** Chart.js visualizations, KPI cards, alerts, filters, and dynamic dashboard panels.
+
+---
+
+## Features
+
+| Area | Features |
+|---|---|
+| Authentication | Signup, login, logout, JWT cookie authentication, protected routes |
+| Dashboard | Balance overview, account cards, financial chart, alerts, recent transactions, rotating Activity/Budgets/Goals panels |
+| Activity | Transaction feed, income/expense filters, date/category/account filters, spending breakdown chart, manual transaction entry |
+| Budgets | Category budgets, spending progress, edit/delete actions, category toggles, transaction drilldowns |
+| Goals | Goal sections, goal limits, deposit schedules, manual/auto/missed/upcoming deposits, completed-goal history, refund handling |
+| Spending Outlook | Activity, budget, card, and goal analytics with AI-generated reports |
+| Assistant AI | Financial Q&A, transaction drafting, budget help, goal planning, quick prompts |
+| Rewards | XP, streaks, daily tasks, bonus XP, 10-level progression, mastery path |
+| Settings | Profile editing, username/password changes, notification preferences, Freedom Bank connection controls |
+| Freedom Bank Sync | Account linking, checking/credit selection, transaction import, duplicate prevention, background sync |
+
+---
+
+## Tech Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | HTML, CSS, JavaScript, Chart.js, Font Awesome, Lottie |
+| Backend | Node.js, Express.js |
+| Database | MySQL |
+| Authentication | JWT, HttpOnly cookies |
+| AI | OpenAI API |
+| Integration | Freedom Bank API, Firebase Identity Toolkit / Secure Token endpoints |
+| Data Access | `mysql2/promise`, parameterized SQL queries |
+
+---
+
+## Project Architecture
+
+```text
+Budgeting-Tracker/
+├── backend/
+│   ├── config/              # Database configuration
+│   ├── controllers/         # Request handlers and business logic
+│   ├── cron/                # Background Freedom Bank sync logic
+│   ├── models/              # MySQL query models
+│   ├── routes/              # Express route definitions
+│   ├── utils/               # Utility helpers
+│   ├── .env.example         # Example environment variables
+│   ├── package.json
+│   └── server.js            # Express server entry point
+│
+├── frontend/
+│   ├── assets/              # Static assets
+│   ├── loginpage/           # Login/signup pages
+│   ├── sections/
+│   │   ├── activity/        # Transaction activity UI
+│   │   ├── assistant/       # AI assistant UI
+│   │   ├── budgets/         # Budget management UI
+│   │   ├── dashboard/       # Main dashboard UI
+│   │   ├── goals/           # Savings goals UI
+│   │   ├── outlook/         # Spending outlook analytics UI
+│   │   ├── rewards/         # Rewards center UI
+│   │   └── settings/        # Profile/settings UI
+│   └── index.html           # SPA-style shell
+│
+├── MySQL schema/            # Database schema files
+├── screenshots/             # README screenshots
+├── .gitignore
+└── README.md
+```
+
+---
+
+## Main Application Sections
+
+### Dashboard
+
+The dashboard provides a high-level financial overview with balance cards, checking/credit account summaries, recent transactions, financial alerts, and rotating Activity/Budgets/Goals panels.
+
+The rotating dashboard panels help summarize different financial areas without forcing the user to navigate away from the main dashboard.
+
+### Assistant AI
+
+The AI assistant supports financial questions, budget help, goal planning, and transaction drafting. Some common financial questions are grounded in stored user data.
+
+### Activity
+
+The activity section displays transaction history with filters, financial KPI cards, spending breakdown charts, and add-transaction tools.
+
+Users can review income and expenses, inspect categories, and analyze spending patterns using the transaction feed and visual chart summary.
+
+### Budgets
+
+The budgets section tracks category-level spending against monthly limits, supports budget editing, and allows users to view transaction history for each category.
+
+### Spending Outlook
+
+The Spending Outlook section provides analytics for activity, budgets, cards, and goals. It includes charts, category summaries, and AI-generated analysis reports.
+
+The screenshots folder includes additional outlook views for activity, budgets, cards, checking, credit, goal data, and goals.
+
+### Goals
+
+The goals module supports savings sections, goal creation, deposit schedules, progress tracking, completed-goal history, refund handling, and what-if analysis.
+
+### Rewards
+
+The rewards center adds gamification through daily tasks, XP, streaks, levels, bonus rewards, and a mastery path.
+
+### Settings
+
+The settings page includes profile editing, password/username changes, notification preferences, and Freedom Bank account connection controls.
+
+---
+
+## Freedom Bank Integration
+
+BudgetWise AI connects to **Freedom Bank**, a separate simulated banking project.
+
+| Capability | Description |
+|---|---|
+| Bank Login | User signs in to the simulated Freedom Bank system |
+| Account Selection | User can connect checking, credit card, or both |
+| Transaction Import | Imported records are saved as BudgetWise transactions |
+| Duplicate Prevention | Existing imported records are protected using external IDs |
+| Background Sync | Connected accounts can be synchronized periodically |
+| Disconnect Control | Users can disconnect Freedom Bank and stop transaction syncing |
+
+This integration is simulated and is designed for demo/testing purposes only.
+
+---
+
+## AI Features
+
+| Feature | Description |
+|---|---|
+| Finance Q&A | Ask questions about spending, income, balances, categories, and goals |
+| Transaction Drafting | Create transaction drafts from natural-language input |
+| Daily Summary | Generate dashboard-level financial summaries |
+| Spending Outlook | Analyze activity, budgets, checking, credit, and goals |
+| Goal What-If | Review goal scenarios and recommendations |
+
+AI responses are intended for educational/demo insights only and should not be treated as professional financial advice.
+
+---
+
+## Security Notes
+
+This project includes authentication and protected routes, but it is not production-ready.
+
+Known limitations:
+
+- Passwords should be hashed before any production use.
+- Secrets must be stored in `.env` and never committed.
+- `JWT_SECRET` should be set to a long private value.
+- OpenAI and Freedom Bank API keys must never be committed.
+- Refresh tokens and financial data require stronger production-grade protection.
+- CSRF protection, rate limiting, and automated tests should be added before real deployment.
+- AI-generated insights should not be treated as professional financial advice.
+
+---
+
+## Environment Variables
+
+Create a real `.env` file inside `backend/` based on `backend/.env.example`.
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_mysql_username
+DB_PASSWORD=your_mysql_password
+DB_NAME=budgettracker
+
+JWT_SECRET=replace_this_with_a_long_random_secret
+FREEDOM_SERVER_API_KEY=your_freedom_bank_api_key
+OPENAI_API_KEY=your_openai_api_key
+```
+
+---
+
+## Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/LernikAvetisyan/Budget-Wise-AI.git
+cd Budget-Wise-AI
+```
+
+### 2. Install backend dependencies
+
+```bash
+cd backend
+npm install
+```
+
+### 3. Configure environment variables
+
+```bash
+copy .env.example .env
+```
+
+Then edit `backend/.env` with your local MySQL credentials, JWT secret, Freedom Bank key, and OpenAI API key.
+
+### 4. Set up MySQL
+
+Create the MySQL database and import the schema from the `MySQL schema/` folder.
+
+### 5. Start the server
+
+```bash
+node server.js
+```
+
+The app runs locally through the Express server.
+
+---
+
+## API Overview
+
+| Route Group | Purpose |
+|---|---|
+| `/api/auth` | Signup, login, logout, current user, profile/security updates |
+| `/api/activity` | Transaction listing, creation, editing, filtering, summaries |
+| `/api/accounts` | Account data, Freedom Bank connection, account sync controls |
+| `/api/budgets` | Budget categories, limits, spending progress |
+| `/api/goals` | Goal sections, goal records, deposits, completion logic |
+| `/api/rewards` | XP, daily tasks, streaks, reward progress |
+| `/api/settings/notifications` | User notification preferences |
+| `/api/assistant` | AI assistant and transaction drafting |
+| `/api/ai` | AI summaries, outlook analysis, goal analysis |
+
+---
+
+## Resume Summary
+
+Built a full-stack personal finance dashboard using Node.js, Express, MySQL, and vanilla JavaScript to track transactions, budgets, savings goals, account summaries, rewards, and AI-assisted financial analytics. Integrated a simulated Freedom Bank API with user-controlled account linking, transaction imports, duplicate prevention, and background synchronization.
+
+---
+
+## Disclaimer
+
+BudgetWise AI is a student/portfolio project using simulated financial data. It is not a real banking system, real payment processor, financial advisor, or production-grade financial platform.
+
+---
+
+## License, Usage, and Academic Integrity Notice
+
+Copyright (c) 2026 Lernik Avetisyan. All rights reserved.
+
+This project is publicly available for educational review, portfolio review, and demonstration purposes only. Viewing or accessing this repository does not grant permission to copy, modify, distribute, publish, submit, sublicense, sell, or use this project, in whole or in part, without prior written approval from the author.
+
+Copying, reusing, submitting, or claiming any part of this project as someone else's work is strictly prohibited, including for academic coursework, personal projects, or commercial purposes.
+
+No license is granted for commercial use, redistribution, derivative works, or incorporation into other software or projects without prior written permission from the author.
+

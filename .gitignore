@@ -1,0 +1,42 @@
+# Node / dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+out/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Runtime / temp files
+backend/logs/
+backend/uploads/
+backend/tmp/
+
+# Local AI/category model artifacts
+merchant_category_model.json
+merchant_category_model.lock
+**/merchant_category_model.json
+**/merchant_category_model.lock
+
+# Videos / large local media
+*.mp4
+
+# Reports that may contain sensitive info
+REPORT/
